@@ -1,0 +1,23 @@
+{
+  "name": "Demo",
+  "version": "1",
+  "description": "我只是一个测试的，主要是想要 s.dependency",
+  "license": "MIT",
+  "summary": "Seeyou",
+  "homepage": "https://github.com/meiyoudev/IMYPublic",
+  "authors": {
+    "suliangjin": "suliangjin@xiaoyouzi.com"
+  },
+  "source": {
+    "git": "git@github.com:su350380433/cocaopods-imy-bin.git",
+    "branch": "dev"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "dependencies": {
+    "AFNetworking": [
+      "4.0.1"
+    ]
+  }
+}
