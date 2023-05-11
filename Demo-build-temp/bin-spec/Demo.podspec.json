@@ -16,8 +16,23 @@
     "ios": "9.0"
   },
   "dependencies": {
+    "YYModel": [
+
+    ],
+    "YYCache": [
+
+    ],
+    "FMDB": [
+
+    ],
+    "LKDBHelper": [
+
+    ],
     "AFNetworking": [
       "4.0.1"
+    ],
+    "Masonry": [
+      "1.1.0"
     ]
   }
 }

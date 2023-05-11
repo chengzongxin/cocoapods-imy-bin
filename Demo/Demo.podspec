@@ -21,10 +21,10 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Source/**/*.h'
 
 
-  # s.dependency 'YYModel'
-  # s.dependency 'YYCache'
-  # s.dependency 'FMDB'
-  # s.dependency 'LKDBHelper'
+  s.dependency 'YYModel'
+  s.dependency 'YYCache'
+  s.dependency 'FMDB'
+  s.dependency 'LKDBHelper'
   s.dependency 'AFNetworking', '4.0.1'
-  # s.dependency 'Masonry'
+  s.dependency 'Masonry', '1.1.0'
 end

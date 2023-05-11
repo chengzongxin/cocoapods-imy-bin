@@ -1,0 +1,49 @@
+{
+  "name": "LKDBHelper",
+  "version": "2.6.0",
+  "summary": "全自动的插入,查询,更新,删除， an automatic database operation thread-safe and not afraid of recursive deadlock",
+  "description": "「   converted automatically by plugin cocoapods-imy-bin @厦门美柚 - slj    」\n 全面支持 NSArray,NSDictionary, ModelClass, NSNumber, NSString, NSDate, NSData, UIColor, UIImage, CGRect, CGPoint, CGSize, NSRange, int,char,float, double, long.. 等属性的自动化操作(插入和查询)",
+  "homepage": "https://github.com/li6185377/LKDBHelper-SQLite-ORM",
+  "license": "MIT",
+  "authors": {
+    "Jianghuai Li": "li6185377@163.com"
+  },
+  "source": {
+    "http": "http://localhost:8080/frameworks/LKDBHelper/2.6.0/zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "5.0"
+  },
+  "requires_arc": true,
+  "default_subspec": [
+    "standard"
+  ],
+  "source_files": "bin_LKDBHelper_2.6.0/Headers/*",
+  "public_header_files": "bin_LKDBHelper_2.6.0/Headers/*.h",
+  "vendored_libraries": "bin_LKDBHelper_2.6.0/*.a",
+  "subspecs": [
+    {
+      "name": "standard",
+      "source_files": "bin_LKDBHelper_2.6.0/Headers/*",
+      "dependencies": {
+        "FMDB": [
+
+        ]
+      },
+      "public_header_files": "bin_LKDBHelper_2.6.0/Headers/*.h",
+      "vendored_libraries": "bin_LKDBHelper_2.6.0/*.a"
+    },
+    {
+      "name": "FMDBStandalone",
+      "source_files": "bin_LKDBHelper_2.6.0/Headers/*",
+      "dependencies": {
+        "FMDB/standalone": [
+
+        ]
+      },
+      "public_header_files": "bin_LKDBHelper_2.6.0/Headers/*.h",
+      "vendored_libraries": "bin_LKDBHelper_2.6.0/*.a"
+    }
+  ]
+}

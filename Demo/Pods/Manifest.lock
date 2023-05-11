@@ -14,17 +14,43 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - LKDBHelper (2.6.0):
+    - LKDBHelper/standard (= 2.6.0)
+  - LKDBHelper/standard (2.6.0):
+    - FMDB
+  - Masonry (1.1.0)
+  - YYCache (1.0.4)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - AFNetworking (= 4.0.1)
+  - AFNetworking
+  - AFNetworking/NSURLSession (= 4.0.1)
+  - FMDB
+  - LKDBHelper
+  - Masonry (= 1.1.0)
+  - YYCache
+  - YYModel
 
 SPEC REPOS:
-  trunk:
+  "git@repo.we.com:iosfeaturelibraries/frameworkrepo.git":
     - AFNetworking
+    - FMDB
+    - LKDBHelper
+    - Masonry
+    - YYCache
+    - YYModel
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 6e1a13713accfef1d75ccf1f2fe8659f05a56e0a
+  FMDB: 74263e5bb8f475b2c7ec43708ccbe688df1ea517
+  LKDBHelper: 409f070ff92ec3eb54670b0e90b182abd97eb6d9
+  Masonry: c32b555df6d7f026d4cac2b8a6fd20f7f803361a
+  YYCache: 00a7acc9c5f586689e2b97dafb5114c50e2b566e
+  YYModel: 23eee8c4eb3f0046f4e67f42d60576c510dc932a
 
-PODFILE CHECKSUM: e4c83cb30b3e07892a8aa3d0a4d0b64ee32f9121
+PODFILE CHECKSUM: ca38d5fc32546f2ed568796a4bdfa8e3f0bad1a7
 
 COCOAPODS: 1.12.0
