@@ -75,6 +75,21 @@ module Pod
             link(lib_file,target_path,name)
           end
         end
+        
+        #下载源码到本地 pod bin code [xxxxxx] not work #213
+        #https://github.com/MeetYouDevs/cocoapods-imy-bin/issues/213 
+        # def download_source(name)
+        #   target_path =  File.join(source_root, name)
+        #   UI.puts target_path
+        #   FileUtils.rm_rf(target_path)
+ 
+        #   source = sources_manager.code_source
+        #   spec = source.specification(name, @config.lockfile.version(name))
+ 
+        #   download_request = Pod::Downloader::Request.new(:name => name, :spec => spec)
+        #   Downloader.download(download_request, Pathname.new(target_path), :can_cache => true)
+        #   target_path
+        # end
 
         #下载源码到本地
         def download_source(name)
@@ -101,6 +116,8 @@ module Pod
               break
             end
           end
+          
+          # find_dependency.external_source = {'podspec':'https://github.com/CocoaPods/Specs.git'}
           find_dependency
         end
 

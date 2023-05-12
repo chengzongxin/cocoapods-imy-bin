@@ -10,8 +10,9 @@
             "request": "launch",
             "cwd": "${workspaceRoot}/Demo",
             "program": "/usr/local/lib/ruby/gems/3.0.0/bin/pod",
-            // "args" : ["bin","install",],
-            "args" : ["bin","auto","--all-make"],
+            "args" : ["bin","install",],
+            // "args" : ["bin","auto","--all-make"],
+            // "args" : ["bin", "code", "Masonry"],
             "useBundler": true,
             "env": {
                 "PATH": "/usr/local/opt/ruby/bin:/usr/local/opt/ruby/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/joe.cheng/.rvm/bin",
