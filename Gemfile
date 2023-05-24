@@ -3,11 +3,13 @@ SKIP_UNRELEASED_VERSIONS = false
 # Specify your gem's dependencies in cocoapods-imy-bin.gemspec
 
 
-def cp_gem(name, repo_name, branch = 'master', path: false)
+def cp_gem(name, repo_name, branch = 'master', path: false, absolute_path: nil)
   return gem name if SKIP_UNRELEASED_VERSIONS
-  opts = if path
+  opts = if absolute_path
+           { :path => absolute_path }
+         elsif path
            { :path => "../#{repo_name}" }
-         else
+         else 
            url = "https://github.com/CocoaPods/#{repo_name}.git"
            { :git => url, :branch => branch }
          end
@@ -21,7 +23,7 @@ source 'https://rubygems.org'
 
 group :development do
 
-  gem 'cocoapods'
+  cp_gem 'cocoapods'                             '',false,absolute_path: '/Users/joe.cheng/cocoapods_debug/CocoaPods'
   gem 'xcodeproj'
   cp_gem 'cocoapods-imy-bin',                'cocoapods-imy-bin',path: 'cocoapods-imy-bin'
 

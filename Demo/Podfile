@@ -1,6 +1,6 @@
 # Uncomment the next line to define a global platform for your project
-source 'git@repo.we.com:iosfeaturelibraries/frameworkrepo.git' # 二进制仓库
-#source 'https://github.com/CocoaPods/Specs.git'        #官方仓库地址
+# source 'git@repo.we.com:iosfeaturelibraries/frameworkrepo.git' # 二进制仓库
+source 'https://github.com/CocoaPods/Specs.git'        #官方仓库地址
 platform :ios, '9.0'
 plugin 'cocoapods-imy-bin'
 target 'Demo' do
@@ -15,4 +15,5 @@ target 'Demo' do
   pod 'LKDBHelper'
   pod 'AFNetworking/NSURLSession', '4.0.1'
   pod 'Masonry', '1.1.0'
+  pod 'Aspects', '1.4.1'
 end

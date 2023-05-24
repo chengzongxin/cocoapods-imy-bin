@@ -1,10 +1,4 @@
 PODS:
-  - AFNetworking (4.0.1):
-    - AFNetworking/NSURLSession (= 4.0.1)
-    - AFNetworking/Reachability (= 4.0.1)
-    - AFNetworking/Security (= 4.0.1)
-    - AFNetworking/Serialization (= 4.0.1)
-    - AFNetworking/UIKit (= 4.0.1)
   - AFNetworking/NSURLSession (4.0.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -12,8 +6,6 @@ PODS:
   - AFNetworking/Reachability (4.0.1)
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
-  - AFNetworking/UIKit (4.0.1):
-    - AFNetworking/NSURLSession
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -26,7 +18,6 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - AFNetworking
   - AFNetworking/NSURLSession (= 4.0.1)
   - FMDB
   - LKDBHelper
@@ -35,7 +26,7 @@ DEPENDENCIES:
   - YYModel
 
 SPEC REPOS:
-  "git@repo.we.com:iosfeaturelibraries/frameworkrepo.git":
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - FMDB
     - LKDBHelper
@@ -44,13 +35,13 @@ SPEC REPOS:
     - YYModel
 
 SPEC CHECKSUMS:
-  AFNetworking: 6e1a13713accfef1d75ccf1f2fe8659f05a56e0a
-  FMDB: 74263e5bb8f475b2c7ec43708ccbe688df1ea517
-  LKDBHelper: 409f070ff92ec3eb54670b0e90b182abd97eb6d9
-  Masonry: c32b555df6d7f026d4cac2b8a6fd20f7f803361a
-  YYCache: 00a7acc9c5f586689e2b97dafb5114c50e2b566e
-  YYModel: 23eee8c4eb3f0046f4e67f42d60576c510dc932a
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  LKDBHelper: 58982cb63832355860a64fed34c381f34e535fbd
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: ca38d5fc32546f2ed568796a4bdfa8e3f0bad1a7
+PODFILE CHECKSUM: c57e9babf3e80c155d4793c8bf35958704235f92
 
 COCOAPODS: 1.12.0

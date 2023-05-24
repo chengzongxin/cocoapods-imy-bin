@@ -27,4 +27,5 @@ Pod::Spec.new do |s|
   s.dependency 'LKDBHelper'
   s.dependency 'AFNetworking', '4.0.1'
   s.dependency 'Masonry', '1.1.0'
+  s.dependency 'Aspects', '1.4.1'
 end
