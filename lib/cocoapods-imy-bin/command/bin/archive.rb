@@ -167,6 +167,21 @@ module Pod
                 
                 argvs << spec_file if spec_file
 
+                # `export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890`
+                # command = "pod gen --sources=git@repo.we.com:iosfeaturelibraries/frameworkrepo.git,git@repo.we.com:ios/tspecsrepo.git,git@repo.we.com:iosfeaturelibraries/frameworkrepo.git,git@repo.we.com:ios/tspecsrepo.git,https://cdn.cocoapods.org --gen-directory=/Users/joe.cheng/cocoapods-imy-bin/Demo-build-temp/bin-archive --clean Demo.podspec --use-podfile Demo.podspec"
+
+                # UI.message "command = #{command}"
+                # output = `#{command}`.lines.to_a
+
+                # if $CHILD_STATUS.exitstatus != 0
+                #   raise <<~EOF
+                #     Build command failed: #{command}
+                #     Output:
+                #     #{output.map { |line| "    #{line}" }.join}
+                #   EOF
+        
+                #   Process.exit
+                # end
                 gen = Pod::Command::Gen.new(CLAide::ARGV.new(argvs))
                 gen.validate!
                 gen.run

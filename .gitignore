@@ -4,3 +4,4 @@ pkg
 examples/
 Demo/Pods/
 Demo-build-temp/
+binary-server/

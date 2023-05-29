@@ -7,7 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CDDB07CC-7CD6-436C-846D-320691C131A2"
+            uuid = "8652E129-923C-445D-81BF-85CB8DB4BC12"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -20,7 +20,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "CDDB07CC-7CD6-436C-846D-320691C131A2 - 9f5cf54a1de4b8c"
+                  uuid = "8652E129-923C-445D-81BF-85CB8DB4BC12 - 9f5cf54a1de4b8c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -32,14 +32,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "40"
                   endingLineNumber = "40"
-                  offsetFromSymbolStart = "206">
+                  offsetFromSymbolStart = "308">
                </Location>
                <Location
-                  uuid = "CDDB07CC-7CD6-436C-846D-320691C131A2 - e679e0c0211b401a"
+                  uuid = "8652E129-923C-445D-81BF-85CB8DB4BC12 - 82a7eb5643cf688f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__41-[ViewController touchesBegan:withEvent:]_block_invoke"
+                  symbolName = "__41-[ViewController touchesBegan:withEvent:]_block_invoke_4"
                   moduleName = "Demo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/joe.cheng/cocoapods-imy-bin/Demo/Demo/ViewController.m"

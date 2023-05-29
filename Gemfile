@@ -23,7 +23,8 @@ source 'https://rubygems.org'
 
 group :development do
 
-  cp_gem 'cocoapods'                             '',false,absolute_path: '/Users/joe.cheng/cocoapods_debug/CocoaPods'
+  # cp_gem 'cocoapods'                             '',false,absolute_path: '/Users/joe.cheng/cocoapods_debug/CocoaPods'
+  gem 'cocoapods'
   gem 'xcodeproj'
   cp_gem 'cocoapods-imy-bin',                'cocoapods-imy-bin',path: 'cocoapods-imy-bin'
 
