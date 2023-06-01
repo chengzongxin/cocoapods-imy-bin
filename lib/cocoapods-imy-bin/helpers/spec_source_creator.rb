@@ -115,7 +115,7 @@ module CBin
         @spec.source_files = binary_source_files
         @spec.public_header_files = binary_public_header_files
         @spec.vendored_libraries = binary_vendored_libraries
-        @spec.resources = binary_resources if @spec.attributes_hash.keys.include?("resources")
+        @spec.resources = binary_resources if spec_has_resource(@spec)
         @spec.description = <<-EOF
          「   converted automatically by plugin cocoapods-imy-bin @厦门美柚 - slj    」
           #{@spec.description}
@@ -127,10 +127,20 @@ module CBin
             subspec.source_files = binary_source_files
             subspec.public_header_files = binary_public_header_files
             subspec.vendored_libraries = binary_vendored_libraries
-            subspec.resources = binary_resources if @spec.attributes_hash.keys.include?("resources")
+            subspec.resources = binary_resources if spec_has_resource(subspec)
           end
         end
         @spec
+      end
+
+      def spec_has_resource(spec)
+        had = false
+        had = spec.attributes_hash.keys.include?("resources")
+        return true if had
+        spec.subspecs.each do |subspec|
+          had = subspec.attributes_hash.keys.include?("resources")
+          return true if had
+        end
       end
 
       def create_framework_from_code_spec

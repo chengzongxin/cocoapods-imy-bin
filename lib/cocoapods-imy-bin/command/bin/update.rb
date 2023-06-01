@@ -126,7 +126,8 @@ module Pod
                       local_dependencies.each do |d|
                         UI.message "Development Pod #{d.to_yaml}"
                         if podfile.plugins.keys.include?('cocoapods-imy-bin')
-                          podfile.set_use_source_pods(d.keys.first) if (d.is_a?(Hash) && d.keys.first)
+                          # 这里会把所有的pod库添加到use_source_pod哈希表，导致源码切换问题
+                          # podfile.set_use_source_pods(d.keys.first) if (d.is_a?(Hash) && d.keys.first)
                         end
                       end
                       new_dependencies = target_dependencies + local_dependencies

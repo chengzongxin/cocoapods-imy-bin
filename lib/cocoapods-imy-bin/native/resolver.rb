@@ -148,7 +148,7 @@ module Pod
                              end
               # used_by_only = rspec.respond_to?(:used_by_tests_only) ? rspec.used_by_tests_only : rspec.used_by_non_library_targets_only
               # 组装新的 rspec ，替换原 rspec
-              if use_binary
+              # if use_binary
                 rspec = if Pod.match_version?('~> 1.4.0')
                           ResolverSpecification.new(specification, used_by_only)
                         else
@@ -156,7 +156,7 @@ module Pod
                         end
                 UI.message "组装新的 rspec ，替换原 rspec #{rspec.root.name} #{spec_version} \r\n specification =#{specification} \r\n #{rspec} "
 
-              end
+              # end
 
             rescue Pod::StandardError => e
               # 没有从新的 source 找到对应版本组件，直接返回原 rspec
