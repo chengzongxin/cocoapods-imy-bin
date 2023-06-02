@@ -6,8 +6,10 @@
 //
 
 #import "ViewController.h"
-#import <AFNetworking/AFNetworking.h>
+//#import <AFNetworking/AFNetworking.h>
 #import <Masonry/Masonry.h>
+#import <TMUIComponents/TMUIComponents.h>
+//#import <TMToast/TMToast.h>
 
 @interface ViewController ()
 
@@ -20,18 +22,23 @@
     // Do any additional setup after loading the view.
     
     NSLog(@"%s",__FUNCTION__);
+    
+    TMUINavigationBar *navBar = [[TMUINavigationBar alloc] init];
+    navBar.title = @"123";
+    [self.view addSubview:navBar];
+    
 }
 
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"http://www.baidu.com" parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
-    }];
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    [manager GET:@"http://www.baidu.com" parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+//
+//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        NSLog(@"%@",responseObject);
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        NSLog(@"%@",error);
+//    }];
     
     
     UIView *v = [UIView new];
@@ -40,6 +47,8 @@
     [v mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(100, 100, 100, 100));
     }];
+//
+//    [TMToast toastScore:100 content:@"hahhahah"];
 }
 
 

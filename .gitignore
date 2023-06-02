@@ -3,5 +3,6 @@ pkg
 .idea/
 examples/
 Demo/Pods/
+Demo/
 Demo-build-temp/
 binary-server/
