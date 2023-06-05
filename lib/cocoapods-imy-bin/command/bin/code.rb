@@ -91,7 +91,8 @@ module Pod
           target_path
         end
 
-        #下载源码到本地
+        #下载源码到本地,需要指定外部源external_source，否则会报nil崩溃，找不到key为podspec
+        # pod 'Masonry', :podspec => 'https://raw.githubusercontent.com/SnapKit/Masonry/master/Masonry.podspec'
         # def download_source(name)
         #   target_path =  File.join(source_root, name)
         #   UI.puts target_path

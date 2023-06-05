@@ -14,8 +14,6 @@ def cp_gem(name, repo_name, branch = 'master', path: false, absolute_path: nil)
            { :git => url, :branch => branch }
          end
   gem name, opts
-  p "cp_gem"
-  p opts
 end
 
 source 'https://rubygems.org'
