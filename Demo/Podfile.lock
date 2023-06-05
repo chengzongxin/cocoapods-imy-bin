@@ -211,18 +211,17 @@ DEPENDENCIES:
   - TMUIComponents (= 2.0.25)
 
 SPEC REPOS:
-  "git@github.com:chengzongxin/bin_specs.git":
+  "git@repo.we.com:iosfeaturelibraries/components_bin_specs.git":
     - Masonry
+    - TMUIComponents
     - TMUICore
     - TMUIExtensions
-  "git@github.com:chengzongxin/src_specs.git":
-    - TMUIComponents
 
 SPEC CHECKSUMS:
-  Masonry: c32b555df6d7f026d4cac2b8a6fd20f7f803361a
-  TMUIComponents: 762a2d8ee827e5798d6eaa46230dddfefdffea42
-  TMUICore: df185f701ff3eb76de946ac1338f7e29a748392e
-  TMUIExtensions: 4dbf05dd80a65042a5d973fd7bb1ca12074245fa
+  Masonry: 728a8ec45302ac4e920bbcee8d5d398f2d5d38a4
+  TMUIComponents: a6d5dddf36b158848718ab16d1a394a3632af2fc
+  TMUICore: 884f80fe85225d54bed29645a1bc8b4fddf625f3
+  TMUIExtensions: da509c5b548409f265ae6b2f4f47a783dfffdab8
 
 PODFILE CHECKSUM: 36f3690ba85a675d85070f42a2ed5f654bf57774
 

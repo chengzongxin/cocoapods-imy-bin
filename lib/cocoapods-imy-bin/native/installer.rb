@@ -113,11 +113,11 @@ module Pod
         project.save
       end
     end
-  end
 
-  module Hook
-    Pod::HooksManager.register('cocoapods-imy-bin', :post_install) do |context|
-      context.pods_project.targets.each do |target|
+    alias old_run_podfile_post_install_hook run_podfile_post_install_hook
+    # 解决资源签名问题
+    def run_podfile_post_install_hook
+      pods_project.targets.each do |target|
         target.build_configurations.each do |config|
 
           # disable code signing for pods
@@ -126,7 +126,10 @@ module Pod
           config.build_settings['CODE_SIGNING_ALLOWED'] = "NO"
         end
       end
+
+      old_run_podfile_post_install_hook
     end
+
   end
 
   module Downloader
