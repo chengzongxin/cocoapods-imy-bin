@@ -76,36 +76,36 @@ module Pod
           end
         end
         
-        #下载源码到本地 pod bin code [xxxxxx] not work #213
-        #https://github.com/MeetYouDevs/cocoapods-imy-bin/issues/213 
-        # def download_source(name)
-        #   target_path =  File.join(source_root, name)
-        #   UI.puts target_path
-        #   FileUtils.rm_rf(target_path)
- 
-        #   source = sources_manager.code_source
-        #   spec = source.specification(name, @config.lockfile.version(name))
- 
-        #   download_request = Pod::Downloader::Request.new(:name => name, :spec => spec)
-        #   Downloader.download(download_request, Pathname.new(target_path), :can_cache => true)
-        #   target_path
-        # end
-
-        #下载源码到本地
+        # 下载源码到本地 pod bin code [xxxxxx] not work #213
+        # https://github.com/MeetYouDevs/cocoapods-imy-bin/issues/213
         def download_source(name)
           target_path =  File.join(source_root, name)
           UI.puts target_path
           FileUtils.rm_rf(target_path)
-
-          find_dependency = find_dependency(name)
-
-          spec = fetch_external_source(find_dependency, @config.podfile,@config.lockfile, @config.sandbox,true )
-
+ 
+          source = sources_manager.code_source
+          spec = source.specification(name, @config.lockfile.version(name))
+ 
           download_request = Pod::Downloader::Request.new(:name => name, :spec => spec)
           Downloader.download(download_request, Pathname.new(target_path), :can_cache => true)
-
           target_path
         end
+
+        #下载源码到本地
+        # def download_source(name)
+        #   target_path =  File.join(source_root, name)
+        #   UI.puts target_path
+        #   FileUtils.rm_rf(target_path)
+        #
+        #   find_dependency = find_dependency(name)
+        #
+        #   spec = fetch_external_source(find_dependency, @config.podfile,@config.lockfile, @config.sandbox,true )
+        #
+        #   download_request = Pod::Downloader::Request.new(:name => name, :spec => spec)
+        #   Downloader.download(download_request, Pathname.new(target_path), :can_cache => true)
+        #
+        #   target_path
+        # end
 
         #找出依赖
         def find_dependency (name)
