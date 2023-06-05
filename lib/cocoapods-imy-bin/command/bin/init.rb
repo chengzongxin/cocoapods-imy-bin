@@ -35,9 +35,8 @@ module Pod
           require 'open-uri'
 
           UI.puts "开始下载配置文件...\n"
-          file = open(url)
+          file = URI.open(url)
           contents = YAML.safe_load(file.read)
-
           UI.puts "开始同步配置文件...\n"
           CBin.config.sync_config(contents.to_hash)
           UI.puts "设置完成.\n".green
