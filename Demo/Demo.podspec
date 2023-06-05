@@ -58,7 +58,7 @@ Pod::Spec.new do |s|
   s.dependency 'THKCustomPageViewController', '0.0.6'
   s.dependency 'THKKeyValueStore', '0.1.2'
   s.dependency 'THKOSSManager', '2.0.3'
-  s.dependency 'TIMKit', '5.0.1'
+  s.dependency 'TIMKit', '5.0.2'
   s.dependency 'TMEmptyView', '1.0.0'
   s.dependency 'TMImageBrowser', '0.1.6'
   s.dependency 'TMJRefresh', '3.4.2'
