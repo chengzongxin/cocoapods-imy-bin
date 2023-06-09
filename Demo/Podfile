@@ -8,7 +8,9 @@ target 'Demo' do
  #  use_frameworks!
 
   # Pods for Demo
-    pod 'Masonry', '1.1.0'
-  #  pod 'TMUIComponents', '2.0.25'
-
+  pod 'AFNetworking', '4.0.1'
+  pod 'YYImage/WebP'
+  pod 'TMUICore', '2.0.25'
+    pod 'TMUIExtensions', '2.0.25'
+    pod 'TMUIComponents', '2.0.25'
 end

@@ -1,7 +1,7 @@
 const frameworks = require('./controllers/frameworks')
+const test = require('./controllers/test')
 const Router = require('koa-router')
 const router = new Router
-
 router
     .get('/frameworks', frameworks.show)
     .get('/frameworks/:names', frameworks.show)
@@ -9,5 +9,6 @@ router
     .del('/frameworks/:name/:version', frameworks.destroy)
     .get('/frameworks/:name/:version/zip', frameworks.download)
     .post('/frameworks', frameworks.create)
+    .post('/test',test.show)
 
 module.exports = router

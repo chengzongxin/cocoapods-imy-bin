@@ -28,7 +28,9 @@ module Pod
 
           @env = argv.option('env') || 'dev'
           CBin.config.set_configuration_env(@env)
-
+          @demo_podspec = Pathname(Dir.pwd) + 'Demo.podspec'
+          # 如果目录下没有podspec文件，则会按照podfile文件生成一份
+          gen_spec_file_if_need
           @podspec = argv.shift_argument || find_podspec
           @specification = Specification.from_file(@podspec)
 
@@ -83,11 +85,64 @@ module Pod
             puts auto_success
             ENV['auto_success'] = auto_success
           end
+
+          clear_demo_podspec
+
           #pod repo update
           UI.section("\nUpdating Spec Repositories\n".yellow) do
             Pod::Command::Bin::Repo::Update.new(CLAide::ARGV.new([])).run
           end
 
+        end
+
+        def clear_demo_podspec
+          FileUtils.rm_rf(@demo_podspec) if @demo_podspec.exist?
+        end
+
+        def gen_spec_file_if_need
+          if code_spec_files.empty?
+            UI.warn "当前目录下没有找到可用源码 podspec. \n "
+            # 同步podspec文件与podfile的依赖一致
+            gen_local_spec_file
+          end
+        end
+
+        def gen_local_spec_file
+          podfile_name = Pathname.glob('Podfile').first
+          local_podfile = Podfile.from_file(podfile_name)
+
+          spec = <<RB
+Pod::Spec.new do |s|
+  s.name = 'Demo'
+  s.version = '1'
+  s.description = '我只是一个测试的，主要是想要 s.dependency'
+  s.license = 'MIT'
+  s.summary = 'Seeyou'
+  s.homepage = 'https://github.com/meiyoudev/IMYPublic'
+  s.authors = { 'suliangjin' => 'suliangjin@xiaoyouzi.com' }
+  s.source = { :git => 'git@github.com:su350380433/cocaos.dependencys-imy-bin.git', :branch => 'dev' }
+  s.ios.deployment_target = '9.0'
+  # s.source_files = 'Source/**/*.{h,m,c}'
+  # s.public_header_files = 'Source/**/*.h'
+  #  ========= 三方库 =========
+RB
+
+          # s.dependency 'AFNetworking', '4.0.1'
+          local_podfile.dependencies.each do | d |
+            version = d.requirement.to_s.delete('=').strip!
+            spec += "  s.dependency '#{d.name}'"
+            spec += ", '#{d.requirement.to_s.delete('=').strip!}'" if !version.nil? && !version.empty?
+            spec += "\n"
+          end
+
+          spec += 'end'
+
+          File.open(@demo_podspec, 'w') { |file| file.write(spec) }
+          # lines.insert(lines.count - 1, dependencies.join("\n"))
+
+          # fw = File.open(file,'w+') # 这里提前打开文件会导致IO文件为空白
+          # fw.puts lines
+          # fw.close
         end
 
         #制作二进制包
@@ -123,7 +178,7 @@ module Pod
             argvs += ["--env=#{@env}"]
           end
           argvs += ["--configuration=#{@config}"]
-          
+
           archive = Pod::Command::Bin::Archive.new(CLAide::ARGV.new(argvs))
           archive.validate!
           source_specs = archive.run
