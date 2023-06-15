@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - Masonry (1.1.0)
   - TMUIComponents (2.0.25):
     - Masonry
@@ -205,24 +220,35 @@ PODS:
     - TMUICore
   - TMUIExtensions/UIKit (2.0.25):
     - TMUICore
+  - YYImage/Core (1.0.4)
+  - YYImage/WebP (1.0.4):
+    - YYImage/Core
 
 DEPENDENCIES:
+  - AFNetworking (= 4.0.1)
   - Masonry (= 1.1.0)
   - TMUIComponents (= 2.0.25)
+  - TMUICore (= 2.0.25)
+  - TMUIExtensions (= 2.0.25)
+  - YYImage/WebP
 
 SPEC REPOS:
   "git@repo.we.com:iosfeaturelibraries/components_bin_specs.git":
+    - AFNetworking
     - Masonry
     - TMUIComponents
     - TMUICore
     - TMUIExtensions
+    - YYImage
 
 SPEC CHECKSUMS:
+  AFNetworking: 38067e7391144b67f1947ef7ce23ebbbcff39c42
   Masonry: 728a8ec45302ac4e920bbcee8d5d398f2d5d38a4
   TMUIComponents: a6d5dddf36b158848718ab16d1a394a3632af2fc
   TMUICore: 884f80fe85225d54bed29645a1bc8b4fddf625f3
   TMUIExtensions: da509c5b548409f265ae6b2f4f47a783dfffdab8
+  YYImage: d98fa1b3079afa4daa9d61309f44d9de2f9732dd
 
-PODFILE CHECKSUM: 36f3690ba85a675d85070f42a2ed5f654bf57774
+PODFILE CHECKSUM: c526eae8a3b5e2fdafd2a971984dc090261f5a46
 
 COCOAPODS: 1.12.0
