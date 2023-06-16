@@ -1,5 +1,6 @@
 require 'cocoapods-imy-bin/native/sources_manager'
 require 'cocoapods-imy-bin/command/bin/repo/update'
+require 'cocoapods-imy-bin/command/bin/repo/trigger'
 require 'cocoapods-imy-bin/command/bin/repo/modify'
 require 'cocoapods/user_interface'
 

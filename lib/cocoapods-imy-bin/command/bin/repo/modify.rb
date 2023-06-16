@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'cocoapods-imy-bin/helpers/trigger'
 require 'cocoapods-imy-bin/helpers/git_until'
 
 module Pod
@@ -15,28 +14,70 @@ module Pod
 
           def self.options
             [
-              ['--all', '更新所有私有源，默认只更新二进制相关私有源']
+              ['--message', '提交的消息']
             ].concat(super)
           end
 
           def initialize(argv)
-            # argv_local = ["{\"before\":\"ee7810f9d805d4de60ff16b11fc667a6dc36873f\",\"after\":\"1111222233334444\",\"ref\":\"refs/heads/master\",\"user_id\":1379,\"user_name\":\"joe.cheng\",\"project_id\":8339,\"repository\":{\"name\":\"FrameworkSpec\",\"url\":\"git@repo.we.com:iosfeaturelibraries/frameworkspec.git\",\"description\":\"二进制仓库spec文件\",\"homepage\":\"http://repo.we.com/iosfeaturelibraries/frameworkspec\"},\"commits\":[{\"id\":\"0169573dc981119ae22ea64a850cc252816cb66b\",\"message\":\"【THKMacroKit-0.1.0】\\n\",\"timestamp\":\"2023-03-21T14:51:23+08:00\",\"url\":\"http://repo.we.com/iosfeaturelibraries/frameworkspec/commit/0169573dc981119ae22ea64a850cc252816cb66b\",\"author\":{\"name\":\"Joe.cheng\",\"email\":\"joe.cheng@corp.to8to.com\"}}],\"total_commits_count\":1}"]
-            @trigger = CBin::Trigger.new(argv)
-
+            @podname = argv.shift_argument
+            @version = argv.shift_argument
+            @commit = argv.shift_argument
+            @message = argv.option('message') || ''
             super
           end
 
           def run
-            raise Pod::Informative, "json消息校验失败 #{@trigger}" unless @trigger.validate_object
-
-            UI.puts "----------更新私有源仓库----------".yellow
+            validate!
             code_source.update(true )
+            binary_source.update(true )
+            UI.puts "----------修改src仓库文件----------".yellow
+            modify_src_repo
+            push_src_repo
+            UI.puts "----------删除bin仓库文件----------".yellow
+            delete_exist_framework
+            delete_bin_repo
+            push_bin_repo
+          end
 
-            specification = code_source.specification(@trigger.podname,@trigger.version)
-            modify_src_commit(specification.defined_in_file,@trigger.commit)
+          def validate!
+            raise Pod::Informative, "#{@podname} podname 为空" unless @podname
+            raise Pod::Informative, "#{@version} version为空" unless @version
+            raise Pod::Informative, "#{@commit} commit为空" unless @commit
+            super
+          end
 
-            # 推送
-            CBin::Git::Until.push(code_source.repo,"source podspec repo change : #{@trigger.podname} commit => #{@trigger.commit} message => #{@trigger.message}")
+
+          def delete_exist_framework
+            # 删除二进制库
+            server_url = CBin::config.binary_upload_url
+            command = "curl -v -X DELETE #{server_url}/#{@podname}/#{@version}"
+            print <<EOF
+            删除二进制文件
+            #{command}
+EOF
+            delete_result = `#{command}`
+            puts "#{delete_result}"
+          end
+
+          def delete_bin_repo
+            # 删除二进制podspec
+            specification = binary_source.specification(@podname,@version)
+            fwk_dir = Pathname.new(specification.defined_in_file).dirname
+            FileUtils.rm_rf(fwk_dir)
+          end
+
+          def push_bin_repo
+            CBin::Git::Until.push(binary_source.repo,"delete bin spec repo change : #{@podname} commit => #{@commit} message => #{@message}")
+          end
+
+          def modify_src_repo
+            specification = code_source.specification(@podname,@version)
+            modify_src_commit(specification.defined_in_file,@commit)
+          end
+
+
+          def push_src_repo
+            CBin::Git::Until.push(code_source.repo,"modify src spec repo change : #{@podname} commit => #{@commit} message => #{@message}")
           end
 
 
@@ -63,21 +104,6 @@ module Pod
 
         end
       end
-    end
-  end
-end
-
-#   >> "1.5.8".compare_by_fields("1.5.8")
-class String
-  def compare_by_fields(other, fieldsep = ".")
-    cmp = proc { |s| s.split(fieldsep).map(&:to_i) }
-    cmp.call(self) <=> cmp.call(other)
-  end
-
-  def trans_home_path!
-    real = Config.Home
-    if self.include? '~'
-      self.gsub(/~/,real)
     end
   end
 end
