@@ -21,7 +21,8 @@ module Pod
             json = JSON.parse(data)
             # p json
             msg = json['commits'].first['message']
-            @pod_infos = msg.match('【(.*)】')[1].split(',').map do |p|
+            # 取逗号分割pod仓库，("," "，"不区分大小写)
+            @pod_infos = msg.match('【(.*)】')[1].split(%r{[,，]}).map do |p|
               m = p.match('([a-zA-Z0-9]*)-(.*)')
               PodInfo.new(m[1],m[2])
             end
