@@ -1,7 +1,7 @@
 require 'cocoapods-imy-bin/native/sources_manager'
 require 'cocoapods-imy-bin/command/bin/repo/update'
 require 'cocoapods-imy-bin/command/bin/repo/trigger'
-require 'cocoapods-imy-bin/command/bin/repo/modify'
+require 'cocoapods-imy-bin/command/bin/spec/modify'
 require 'cocoapods/user_interface'
 
 Pod::HooksManager.register('cocoapods-imy-bin', :pre_install) do |_context, _|

@@ -23,8 +23,9 @@ module Pod
             msg = json['commits'].first['message']
             # 取逗号分割pod仓库，("," "，"不区分大小写)
             @pod_infos = msg.match('【(.*)】')[1].split(%r{[,，]}).map do |p|
-              m = p.match('([a-zA-Z0-9]*)-(.*)')
-              PodInfo.new(m[1],m[2])
+              p.match('([a-zA-Z0-9]*)-(.*)') do |m|
+                PodInfo.new(m[1],m[2])
+              end
             end
             @commit = json['after']
             @message = json['commits'][0]['message'].chomp
@@ -51,7 +52,7 @@ module Pod
               "--message=#{message}"
             ]
 
-            modify = Pod::Command::Bin::Repo::Modify.new(CLAide::ARGV.new(argvs))
+            modify = Pod::Command::Bin::Spec::Modify.new(CLAide::ARGV.new(argvs))
             modify.validate!
             modify.run
           end

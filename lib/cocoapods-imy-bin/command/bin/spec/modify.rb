@@ -4,9 +4,9 @@ require 'cocoapods-imy-bin/helpers/git_until'
 module Pod
   class Command
     class Bin < Command
-      class Repo < Bin
-        class Modify < Repo
-          self.summary = '修改源码spec仓库'
+      class Spec < Bin
+        class Modify < Spec
+          self.summary = '修改源码spec仓库，Usage：bin spec modify THKMacroKit 0.1.0 1234 --message=hahaha'
 
           self.arguments = [
             CLAide::Argument.new('NAME', false)
@@ -14,7 +14,11 @@ module Pod
 
           def self.options
             [
-              ['--message', '提交的消息']
+              ['podspec', '.podsepc文件'],
+              ['0.1.0', 'spec文件对应的版本'],
+              ['1234', 'spec文件对应的commit号'],
+              ['--message=修改了xxx，更新了xxx', '提交的消息'],
+              ['--no-deleteBin','不删除二进制仓库，默认删除']
             ].concat(super)
           end
 
@@ -23,6 +27,7 @@ module Pod
             @version = argv.shift_argument
             @commit = argv.shift_argument
             @message = argv.option('message') || ''
+            @delete_bin = argv.flag?('deleteBin', true)
             super
           end
 
@@ -33,6 +38,7 @@ module Pod
             UI.puts "----------修改src仓库文件----------".yellow
             modify_src_repo
             push_src_repo
+            return unless @delete_bin
             UI.puts "----------删除bin仓库文件----------".yellow
             delete_exist_framework
             delete_bin_repo
