@@ -66,10 +66,16 @@ EOF
           end
 
           def delete_bin_repo
-            # 删除二进制podspec
-            specification = binary_source.specification(@podname,@version)
-            fwk_dir = Pathname.new(specification.defined_in_file).dirname
-            FileUtils.rm_rf(fwk_dir)
+            begin
+              # 删除二进制podspec
+              specification = binary_source.specification(@podname,@version)
+              fwk_dir = Pathname.new(specification.defined_in_file).dirname
+              FileUtils.rm_rf(fwk_dir)
+            rescue Exception => e
+              message = "delete bin repo fail: #{e.message}"
+              UI.puts message.yellow
+            end
+            
           end
 
           def push_bin_repo
