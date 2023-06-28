@@ -103,7 +103,7 @@ EOF
             p 'start modify file ...' + file
 
             IO.write(file, File.open(file) do |f|
-              f.read.gsub(/:commit => "(.*)"/, ":commit => \"#{commit}\"")
+              f.read.gsub(/:commit => ["'](.*)["']/, ":commit => \"#{commit}\"")
             end
             )
           end

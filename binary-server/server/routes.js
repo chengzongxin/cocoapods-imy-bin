@@ -9,6 +9,9 @@ router
     .del('/frameworks/:name/:version', frameworks.destroy)
     .get('/frameworks/:name/:version/zip', frameworks.download)
     .post('/frameworks', frameworks.create)
-    .post('/test',test.show)
+    .get('/test',test.test)
+    .post('/test/fileupload',test.fileupload)
+    .post('/test/save',test.save)
+    .del('/test/remove/:name/:version', test.remove)
 
 module.exports = router

@@ -8,9 +8,5 @@ target 'Demo' do
  #  use_frameworks!
 
   # Pods for Demo
-  pod 'AFNetworking', '4.0.1'
-  pod 'YYImage/WebP'
-  pod 'TMUICore', '2.0.25'
-    pod 'TMUIExtensions', '2.0.25'
-    pod 'TMUIComponents', '2.0.25'
+  pod 'TGaiaXiOS', '1.0.0'
 end
