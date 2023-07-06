@@ -13,5 +13,5 @@ router
     .post('/test/fileupload',test.fileupload)
     .post('/test/save',test.save)
     .del('/test/remove/:name/:version', test.remove)
-
+    .post('/graphic/collection',test.collection)
 module.exports = router

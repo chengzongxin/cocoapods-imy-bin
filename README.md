@@ -17,6 +17,8 @@ gem install *.gem
 ### 3.配置模板
 ```shell
 pod bin init --bin-url=https://raw.githubusercontent.com/chengzongxin/cocoapods-imy-bin/main/Docs/bin_dev.yml
+或者
+pod bin init --bin-url=https://gitee.com/chengzongxin/cocoapods-imy-bin/raw/main/Docs/bin_dev.yml
 ```
 
 

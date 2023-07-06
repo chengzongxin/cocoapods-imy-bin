@@ -8,5 +8,10 @@ target 'Demo' do
  #  use_frameworks!
 
   # Pods for Demo
-  pod 'TGaiaXiOS', '1.0.0'
+  # pod 'TGaiaXiOS', '1.0.0'
+    pod 'Masonry', '1.1.0'
+    pod 'TMUIComponents', '2.0.25'
+    pod 'TMUICore', '2.0.25'
+    pod 'TMUIExtensions', '2.0.25'
+
 end

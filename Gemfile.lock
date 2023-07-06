@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cocoapods-imy-bin (1.0.6)
+    cocoapods-imy-bin (1.0.7)
       cocoapods
       cocoapods-generate
       parallel
