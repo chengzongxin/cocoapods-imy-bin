@@ -4,6 +4,7 @@
     "description": "binary server",
     "main": "app.js",
     "dependencies": {
+        "cors": "^2.8.5",
         "fs-promise": "^2.0.3",
         "koa": "^2.5.1",
         "koa-body": "^2.5.0",
@@ -13,7 +14,6 @@
         "rimraf": "^2.6.2",
         "upper-case": "^2.0.2"
     },
-    "devDependencies": {},
     "scripts": {
         "test": "test",
         "start": "node app.js"

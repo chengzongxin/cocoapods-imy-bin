@@ -13,5 +13,8 @@ router
     .post('/test/fileupload',test.fileupload)
     .post('/test/save',test.save)
     .del('/test/remove/:name/:version', test.remove)
-    .post('/graphic/collection',test.collection)
+    // tbt 测试
+    .post('/cps/app/worksCollection/appDetail',test.collection)
+    .post('/referen/picture/list',test.referen_picture_list)
+
 module.exports = router
