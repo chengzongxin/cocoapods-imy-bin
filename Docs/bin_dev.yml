@@ -1,6 +1,6 @@
 ---
 configuration_env: dev
 code_repo_url: git@gitlab.to8to.com:iosfeaturelibraries/components_src_specs.git
-binary_repo_url: git@rgitlab.to8to.com:iosfeaturelibraries/components_bin_specs.git
+binary_repo_url: git@gitlab.to8to.com:iosfeaturelibraries/components_bin_specs.git
 binary_download_url: http://10.4.42.56:8081/frameworks/%s/%s/zip
 download_file_type: zip
